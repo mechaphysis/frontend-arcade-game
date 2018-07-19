@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x,y,speed = 300) {
+var Enemy = function(x,y,speed) {
     // This helper loads the sprite for the enemies.
     // It will be reused later for loading the player sprite.
     this.sprite = 'images/enemy-bug.png';
@@ -15,7 +15,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed *dt;
+    this.x = this.x + this.speed *dt;
 };
 
 // Draw the enemy on the screen, required method for game
@@ -27,13 +27,15 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(x,y) {
+  this.sprite = 'images/char-cat-girl.png';
   this.x = x;
   this.y = y;
-  this.sprite = 'images/char-cat-girl.png';
 };
 
 Player.prototype.update = function() {
-//TO-DO: fill in this function to check when the player reaches water level
+  this.x = this.x;
+  this.y = this.y;
+  // reset player when reaching water:
   if (this.y <= 0) {
     this.x = 200;
     this.y = 400;
