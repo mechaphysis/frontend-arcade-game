@@ -30,7 +30,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(x,y) {
-  this.sprite = 'images/char-boy.png';
+  this.sprite = 'images/char-cat-girl.png';
   this.x = x;
   this.y = y;
 };
@@ -39,9 +39,9 @@ Player.prototype.update = function() {
   this.x = this.x;
   this.y = this.y;
   // reset player when reaching water:
-  if (this.y <= 0) {
+  if (this.y < 0) {
     this.x = 200;
-    this.y = 400;
+    this.y = 430;
   }
 };
 
@@ -51,13 +51,13 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(pressedKey) {
   if (pressedKey == 'left' && this.x >0) {
-    this.x -= 100;
+    this.x -= 30;
   } else if (pressedKey == 'right' && this.x <400) {
-    this.x += 100;
-  } else if (pressedKey == 'up' && this.y >0) {
-    this.y -= 100;
-  } else if (pressedKey == 'down' && this.y <400) {
-    this.y += 100;
+    this.x += 30;
+  } else if (pressedKey == 'up' && this.y >=0) {
+    this.y -= 30;
+  } else if (pressedKey == 'down' && this.y <430) {
+    this.y += 30;
   }
 }
 
@@ -65,7 +65,7 @@ Player.prototype.handleInput = function(pressedKey) {
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [ new Enemy(0,60,300), new Enemy(0,120,150), new Enemy(0,160,200)];
 // Place the player object in a variable called player
-var player = new Player(200,400);
+var player = new Player(200,430);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
