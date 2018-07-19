@@ -27,7 +27,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(x,y) {
-  this.sprite = 'images/char-cat-girl.png';
+  this.sprite = 'images/char-boy.png';
   this.x = x;
   this.y = y;
 };
@@ -53,14 +53,14 @@ Player.prototype.handleInput = function(pressedKey) {
     this.x += 100;
   } else if (pressedKey == 'up' && this.y >=0) {
     this.y -= 100;
-  } else if (pressedKey == 'down' && this.y >=600) {
+  } else if (pressedKey == 'down' && this.y <=600) {
     this.y += 100;
   }
 }
 
 // Now we instantiate the objects:
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [ new Enemy(0,60,3), new Enemy(0,120,3), new Enemy(0,160,3)];
+var allEnemies = [ new Enemy(0,60,300), new Enemy(0,120,150), new Enemy(0,160,200)];
 // Place the player object in a variable called player
 var player = new Player(200,400);
 
