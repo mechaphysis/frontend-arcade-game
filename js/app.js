@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x,y,speed = 1) {
+var Enemy = function(x,y,speed = 300) {
     // This helper loads the sprite for the enemies.
     // It will be reused later for loading the player sprite.
     this.sprite = 'images/enemy-bug.png';
@@ -29,7 +29,7 @@ Enemy.prototype.render = function() {
 var Player = function(x,y) {
   this.x = x;
   this.y = y;
-  this.sprite = 'images/char-pink-girl.png';
+  this.sprite = 'images/char-cat-girl.png';
 };
 
 Player.prototype.update = function() {
@@ -44,14 +44,23 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function() {
+Player.prototype.handleInput = function(pressedKey) {
+  if (pressedKey == 'left' && this.x >=0) {
+    this.x -= 100;
+  } else if (pressedKey == 'right' && this.x <=500) {
+    this.x += 100;
+  } else if (pressedKey == 'up' && this.y >=0) {
+    this.y -= 100;
+  } else if (pressedKey == 'down' && this.y >=600) {
+    this.y += 100;
+  }
 }
 
 // Now we instantiate the objects:
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [ new Enemy(0,60,3), new Enemy(0,120,3), new Enemy(0,160,3)]
 // Place the player object in a variable called player
-let player = new Player(202,415);
+let player = new Player(200,400);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
