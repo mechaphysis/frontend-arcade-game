@@ -1,6 +1,31 @@
-frontend-nanodegree-arcade-game
-===============================
+# Front End Nanodegree Arcade Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Table of Contents
+* [What it is](#what-is)
+* [TO-DO](#to-do)
+* [Contributing](#contributing)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## What it is
+
+This is a version of the classic arcade game: Frogger. It was built using Object-Oriented JavaScript Paradigm (ES5 syntax).
+
+Rules are simple, your objective is to reach the water at the other side of the board. If you touch a ladybug you lose and your character goes back to the beginning.
+
+Good Luck & Have fun! :beetle: :leaves: :beetle: :leaves: :beetle: :ocean: :sparkler:
+
+## How to play
+
+Click [here]( https://mechaphysis.github.io/frontend-arcade-game/) to play the game!
+
+### TO-DO
+
+* Design new sprites.
+* Add a modal popup for Victory/Game Over.
+* Implement the possibility to choose other characters.
+* Add collectible items on screen.
+* Add a timer.
+
+
+## Contributing
+
+This is my personal repository for the Udacity classic arcade game project. I will not likely accept pull requests for the moment, but feedback is always welcome! :relaxed:
