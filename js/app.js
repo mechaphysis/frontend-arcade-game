@@ -9,8 +9,8 @@ var Enemy = function(x,y,speed) {
     this.speed = speed;
     // This properties which hold the width and height of the sprite will be used by
     // the 2D collision detection algorithm later on:
-    this.width = 101;
-    this.height = 171;
+    this.width = 171;
+    this.height = 101;
 };
 
 Enemy.prototype.update = function(dt) {
@@ -21,14 +21,16 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
       this.x = -10;
     }
-    console.log(player.x < this.x + this.width);
-    //here we implement collision detection with a pretty basic algorithm
-    if (player.x < this.x + this.width &&
-        player.x + player.width > this.x &&
-        player.y < this.y + this.height &&
-        player.height + player.y > this.y) {
-      console.log("Collision detected!")
-    }
+    //2D Collision detection algorithm based on:
+    // https://developer.mozilla.org/es/docs/Games/Techniques/2D_collision_detection
+    // The values that stand for 50 and 100 are corrections to the algorithm
+    // in order to adapt it to work with these sprites:
+      if (player.x < this.x + this.width -50 &&
+          player.x + player.width > this.x &&
+          player.y < this.y + this.height -100 &&
+          player.height + player.y > this.y) {
+        player.reset();
+      }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -53,10 +55,14 @@ Player.prototype.update = function() {
   this.y = this.y;
   // reset player when reaching water:
   if (this.y < 0) {
-    this.x = 200;
-    this.y = 430;
+    player.reset();
   }
 };
+
+Player.prototype.reset = function()  {
+  this.x = 200;
+  this.y = 430;
+}
 
 //We reuse the same code from enemy .render() method:
 Player.prototype.render = function() {
