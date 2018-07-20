@@ -28,4 +28,4 @@ Click [here]( https://mechaphysis.github.io/frontend-arcade-game/) to play the g
 
 ## Contributing
 
-This is my personal repository for the Udacity classic arcade game project. I will not likely accept pull requests for the moment, but feedback is always welcome! :relaxed:
+This is my personal repository for the Udacity  Front-End Nanodegree project: classic arcade game. I will not likely accept pull requests for the moment, but feedback is always welcome! :relaxed:
