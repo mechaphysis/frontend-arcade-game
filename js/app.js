@@ -1,3 +1,5 @@
+//Enable strict mode in JavaScript. This avoids execution of poorly coded functions and so:
+"use strict";
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
     // This helper loads the sprite for the enemies.
