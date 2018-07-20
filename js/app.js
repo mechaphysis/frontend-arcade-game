@@ -7,17 +7,27 @@ var Enemy = function(x,y,speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
+    // This properties which hold the width and height of the sprite will be used by
+    // the 2D collision detection algorithm later on:
+    this.width = 101;
+    this.height = 171;
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
+    // Multiplying any movement by the dt parameter
+    // will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + this.speed *dt;
     if (this.x >= 505) {
       this.x = -10;
+    }
+    console.log(player.x < this.x + this.width);
+    //here we implement collision detection with a pretty basic algorithm
+    if (player.x < this.x + this.width &&
+        player.x + player.width > this.x &&
+        player.y < this.y + this.height &&
+        player.height + player.y > this.y) {
+      console.log("Collision detected!")
     }
 };
 
@@ -26,13 +36,16 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Now we define Player class with its methods:
+// .update(), .render() and .handleInput()
 var Player = function(x,y) {
   this.sprite = 'images/char-cat-girl.png';
   this.x = x;
   this.y = y;
+  // This properties which hold the width and height of the sprite
+  //will be used by the 2D collision detection algorithm implemented
+  this.width = 101;
+  this.height = 171;
 };
 
 Player.prototype.update = function() {
@@ -45,10 +58,13 @@ Player.prototype.update = function() {
   }
 };
 
+//We reuse the same code from enemy .render() method:
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// With the handleInput method we control the movement
+// of the character according to which key is pressed:
 Player.prototype.handleInput = function(pressedKey) {
   if (pressedKey == 'left' && this.x >0) {
     this.x -= 30;
@@ -67,8 +83,9 @@ var allEnemies = [ new Enemy(0,60,300), new Enemy(0,120,150), new Enemy(0,160,20
 // Place the player object in a variable called player
 var player = new Player(200,430);
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// This listens for key presses and sends the keys to
+// Player.handleInput() method.
+// **Remember: each key in keyboard has a number assigned
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
