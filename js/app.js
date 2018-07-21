@@ -27,9 +27,9 @@ Enemy.prototype.update = function(dt) {
     // https://developer.mozilla.org/es/docs/Games/Techniques/2D_collision_detection
     // The values that stand for 50 and 100 are corrections to the algorithm
     // in order to adapt it to work with these sprites:
-      if (player.x < this.x + this.width -50 &&
+      if (player.x < this.x + this.width -110 &&
           player.x + player.width > this.x &&
-          player.y < this.y + this.height -100 &&
+          player.y < this.y + this.height -110 &&
           player.height + player.y > this.y) {
         player.reset();
       }
