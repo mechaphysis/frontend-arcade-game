@@ -17,6 +17,8 @@ Good Luck & Have fun! :beetle: :leaves: :beetle: :leaves: :beetle: :ocean: :spar
 
 Click [here]( https://mechaphysis.github.io/frontend-arcade-game/) to play the game!
 
+If you prefer to play locally simply download the game [here](_https://github.com/mechaphysis/frontend-arcade-game/archive/master.zip) and open the *index.html* file in your web browser.
+
 ### TO-DO
 
 * Design new sprites.
@@ -30,4 +32,3 @@ Click [here]( https://mechaphysis.github.io/frontend-arcade-game/) to play the g
 ## Contributing
 
 This is my personal repository for the Udacity  Front-End Nanodegree project: _Classic Arcade game_. I will not likely accept pull requests for the moment, but feedback is always welcome! :relaxed:
-
